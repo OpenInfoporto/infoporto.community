@@ -15,13 +15,17 @@
 <metal:main fill-slot="content-core">
   <metal:content-core define-macro="content-core">
 
+    <div class="agreement-icon">
+      <img src="" tal:attributes="src string:${context/absolute_url}/@@download/icon" />
+    </div>
+
     <div class="agreement-details">
         <h3>Details</h3>
         <div tal:content="structure context/details/raw" />
     </div>
 
     <div class="agreement-validity">
-        <h3>Valid thru</h3>
+        <h3>Valid dates</h3>
         <p class="agreement-start" tal:content="context/start" />
         <p class="agreement-end" tal:content="context/end" />
     </div>
