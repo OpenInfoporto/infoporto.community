@@ -34,4 +34,25 @@
 
   <!-- -*- extra stuff goes here -*- -->
 
+  <browser:page
+    name="get_news"
+    for="*"
+    permission="zope2.View"
+    class=".api.getNews"
+    />
+
+  <browser:page
+    name="get_agreements"
+    for="*"
+    permission="zope2.View"
+    class=".api.getAgreements"
+    />
+
+  <browser:page
+    name="get_events"
+    for="*"
+    permission="zope2.View"
+    class=".api.getEvents"
+    />
+
 </configure>
