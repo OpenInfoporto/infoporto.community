@@ -25,6 +25,7 @@ class getNews():
         
         return json.dumps(res)
 
+
 class getAgreements():
     def __call__(self):
         res = []
@@ -39,6 +40,7 @@ class getAgreements():
             res.append(rel)
 
         return json.dumps(res)
+
 
 class getEvents():
     def __call__(self):
