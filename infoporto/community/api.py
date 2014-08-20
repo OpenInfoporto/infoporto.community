@@ -3,6 +3,7 @@ Basic API for misc contents
 
 """
 from plone import api
+from cgi import escape
 import json
 
 
@@ -17,10 +18,11 @@ class getNews():
         for el in getByType('News Item'):
             o = el.getObject()
             rel = dict(uid=o.UID(), title=o.title, description=o.Description(),
-                       text=o.getText(),
+                       text=escape(unicode(o.getText(), errors='ignore')).encode('ascii', 'xmlcharrefreplace'),
+                       #text=o.getText(),
                        modification_date=o.modification_date.strftime('%d-%m-%Y %H:%M:%S'))
             res.append(rel)
-
+        
         return json.dumps(res)
 
 class getAgreements():
