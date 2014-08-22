@@ -42,6 +42,21 @@ class getAgreements():
         return json.dumps(res)
 
 
+class setUseAgreements():
+    def __call__(self):
+        return json.dumps({'response': 'Request saved.'})
+
+
+class sendIM():
+    def __call__(self):
+        return json.dumps({'response': 'Message sent.'})
+
+
+class likeIt():
+    def __call__(self):
+        return json.dumps({'response': 'Request saved.'})
+
+
 class getEvents():
     def __call__(self):
         res = []

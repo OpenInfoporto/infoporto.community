@@ -49,6 +49,27 @@
     />
 
   <browser:page
+    name="set_use_agreement"
+    for="*"
+    permission="zope2.View"
+    class=".api.setUseAgreements"
+    />
+
+  <browser:page
+    name="send_im"
+    for="*"
+    permission="zope2.View"
+    class=".api.sendIM"
+    />
+
+  <browser:page
+    name="like_it"
+    for="*"
+    permission="zope2.View"
+    class=".api.likeIt"
+    />
+
+  <browser:page
     name="get_events"
     for="*"
     permission="zope2.View"
