@@ -76,4 +76,11 @@
     class=".api.getEvents"
     />
 
+  <browser:page
+    name="get_inbox"
+    for="*"
+    permission="zope2.View"
+    class=".api.getInbox"
+    />
+
 </configure>

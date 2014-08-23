@@ -19,8 +19,8 @@ class getNews():
             o = el.getObject()
             rel = dict(uid=o.UID(), title=o.title, description=o.Description(),
                        text=escape(unicode(o.getText(), errors='ignore')).encode('ascii', 'xmlcharrefreplace'),
-                       #text=o.getText(),
-                       modification_date=o.modification_date.strftime('%d-%m-%Y %H:%M:%S'))
+                       modification_date=o.modification_date.strftime('%d-%m-%Y %H:%M:%S'),
+                       likes=31)
             res.append(rel)
         
         return json.dumps(res)
@@ -36,7 +36,8 @@ class getAgreements():
                        contact_email=o.contact_email, contact_name=o.contact_name, 
                        contact_phone=o.contact_phone, 
                        start=o.start.strftime('%d-%m-%Y %H:%M:%S'), 
-                       end=o.end.strftime('%d-%m-%Y %H:%M:%S'))
+                       end=o.end.strftime('%d-%m-%Y %H:%M:%S'),
+                       likes=21)
             res.append(rel)
 
         return json.dumps(res)
@@ -57,6 +58,12 @@ class likeIt():
         return json.dumps({'response': 'Request saved.'})
 
 
+class getInbox():
+    def __call__(self):
+        messages = [dict(subject="Benvenuto!")]
+        return json.dumps({'messages': messages})
+
+
 class getEvents():
     def __call__(self):
         res = []
@@ -70,7 +77,8 @@ class getEvents():
                        event_url=o.eventUrl,
                        start_date=o.startDate.strftime('%d-%m-%Y %H:%M:%S'),
                        end_date=o.endDate.strftime('%d-%m-%Y %H:%M:%S'),
-                        )
+                       likes=12,
+                       )
             res.append(rel)
 
         return json.dumps(res)
