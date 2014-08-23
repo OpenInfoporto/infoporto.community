@@ -15,12 +15,14 @@ Get all news from the portal and bring them back to user in a JSON list like bel
             "title": "dolor sit amet",
             "uid": "22cf54a562604612b07c953383a2cdfc",
             "modification_date": "06-08-2014 08:18:17",
-            "description": "lorem ipsum dolor sit amet"},
+            "description": "lorem ipsum dolor sit amet",
+            "likes": 12},
         {"text": "&lt;p&gt;Lorem ipsum dolor sit amet &lt;br /&gt;",
             "title": "Lorem ipsum dolor sit amet",
             "uid": "df183a7ee7f245c2af8ad353f1ac0540",
             "modification_date": "06-08-2014 08:20:15",
-            "description": "test description"}
+            "description": "test description",
+            "likes": 98}
     ]
 
 Content of the field ``text`` is a rich text encoded.
@@ -40,7 +42,8 @@ Get all agreements object from the portal and bring them back to user in a JSON 
         "modification_date": "22-08-2014 10:53:48",
         "start": "01-01-2014 00:00:00",
         "title": "Convenzione di prova",
-        "uid": "584dec6f385e459fbec4891a4e42ce61"
+        "uid": "584dec6f385e459fbec4891a4e42ce61",
+        "likes": 21
     }]
 
 
@@ -59,7 +62,8 @@ Get all events object from the portal and bring them back to user in a JSON list
         "modification_date": "06-08-2014 08:25:28",
         "start_date": "22-08-2014 20:25:00",
         "title": "ESTATE NOVA",
-        "uid": "aa8ada81f3dc467bbbb2490d93b68a53"
+        "uid": "aa8ada81f3dc467bbbb2490d93b68a53",
+        "likes": 43
     }]
 
 

@@ -60,7 +60,12 @@ class likeIt():
 
 class getInbox():
     def __call__(self):
-        messages = [dict(subject="Benvenuto!")]
+        messages = [dict(subject="Benvenuto!", 
+                         from_id="admin",
+                         to_id="admin",
+                         message="Lorem ipsum dolor sit amet...",
+                         created_at="2014-12-31 11:31:12",
+                         status="new")]
         return json.dumps({'messages': messages})
 
 
