@@ -15,33 +15,38 @@
 <metal:main fill-slot="content-core">
   <metal:content-core define-macro="content-core">
 
-    <div class="agreement-icon">
-      <img src="" tal:attributes="src string:${context/absolute_url}/@@download/icon" />
-    </div>
+  <div class="main-content">
+    <div class="content-block">
 
-    <div class="agreement-details">
-        <h3>Details</h3>
+        <div class="agreement-validity">
+          <h3>Validità</h3>
+          <p>Valido dal <span class="agreement-start" tal:content="context/start" /> al
+          <span class="agreement-end" tal:content="context/end" /></p>
+        </div>
+
+      <div class="agreement-contact">
+        <h5>E-mail:  <span class="agreement-contact-email">
+                <a tal:attributes="href context/contact_email"
+                    tal:content="context/contact_email"></a>
+            </span></h5>
+        <h5>Referente:  <span class="agreement-contact-name" tal:content="context/contact_name" /></h5>
+        <h5>Telefono:   <span class="agreement-contact-phone" tal:content="context/contact_phone" /></h5>
+        <br>
+        <h5>Servizio: </h5>
         <div tal:content="structure context/details/raw" />
-    </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-sm btn-gray">Contatta il fornitore</button>
+        <button type="submit" class="btn btn-sm btn-gray">Richiedi info al Centro Servizi</button>
+        <a href=""><img class="like" src="img/icon-like.png" alt=""></a>
+        <h5>Commenti</h5>
+        <div class="col-xs-12 commenti">
 
-    <div class="agreement-validity">
-        <h3>Valid dates</h3>
-        <p class="agreement-start" tal:content="context/start" />
-        <p class="agreement-end" tal:content="context/end" />
+        </div>
     </div>
+    <div class="row"></div>
 
-    <div class="agreement-contact">
-        <p class="agreement-contact-name" tal:content="context/contact_name" />
-        <p class="agreement-contact-email">
-            <a tal:attributes="href context/contact_email"
-                tal:content="context/contact_email"></a>
-        </p>
-        <p class="agreement-contact-phone" tal:content="context/contact_phone" />
-    </div>
-
-    <div class="agreement-action">
-        <button>Use this!</button>
-    </div>
+  </div>
 
   </metal:content-core>
 </metal:main>
