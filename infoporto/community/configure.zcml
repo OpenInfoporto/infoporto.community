@@ -83,4 +83,12 @@
     class=".api.getInbox"
     />
 
+
+  <browser:page
+    name="contact-supplier"
+    for="*"
+    permission="zope2.View"
+    class=".agreement.ContactSupplier"
+    />
+
 </configure>

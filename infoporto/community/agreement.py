@@ -15,6 +15,9 @@ from plone.namedfile.interfaces import IImageScaleTraversable
 
 from infoporto.community import MessageFactory as _
 
+from Products.Five import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from plone import api
 
 # Interface class; used to define content-type schema.
 
@@ -59,6 +62,11 @@ class Iagreement(form.Schema, IImageScaleTraversable):
             title=_(u"Contact phone"),
             required=False,
         )
+    
+    contact_address = schema.TextLine(
+            title=_(u"Contact address"),
+            required=False,
+        )
 
 # Custom content-type class; objects created for this content type will
 # be instances of this class. Use this class to add content-type specific
@@ -91,3 +99,19 @@ class View(grok.View):
     grok.name('view')
 
     # Add view methods here
+
+
+class ContactSupplier(BrowserView):
+    template = ViewPageTemplateFile('agreement_templates/contact_supplier.pt')
+
+    def getCurrentName(self):
+        current = api.user.get_current()
+        return current.getUserName()
+
+    def __call__(self):
+        #TODO: implement msg send
+        if self.request.get('action') == 'sand':
+            pass
+
+        return self.template()
+
