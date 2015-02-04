@@ -26,7 +26,8 @@ setup(name='infoporto.community',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'plone.app.dexterity [grok]',
+          'plone.app.dexterity [grok, relations]',
+          'plone.app.relationfield',
           'plone.namedfile [blobs]',
           # -*- Extra requirements: -*-
       ],

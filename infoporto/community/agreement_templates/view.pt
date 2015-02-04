@@ -23,27 +23,37 @@
           <p>Valido dal <span class="agreement-start" tal:content="context/start" /> al
           <span class="agreement-end" tal:content="context/end" /></p>
         </div>
+        
+        <div class="col-md-8" id="agreement-content" tal:content="structure context/details/raw" />
 
-      <div class="agreement-contact">
-        <h5 tal:condition="context/contact_email">E-mail:  <span class="agreement-contact-email">
-                <a tal:attributes="href context/contact_email"
-                    tal:content="context/contact_email"></a>
-            </span></h5>
-        <h5 tal:condition="context/contact_name">Referente:  <span class="agreement-contact-name" tal:content="context/contact_name" /></h5>
-        <h6 tal:condition="context/contact_phone">Telefono:   <span class="agreement-contact-phone" tal:content="context/contact_phone" /></h6>
-        <h6 tal:condition="context/contact_address">Indirizzo:  <span class="agreement-contact-address" tal:content="context/contact_address" /></h6>
-        <br>
-        <h5>Servizio: </h5>
-        <div tal:content="structure context/details/raw" />
+        <div class="agreement-contact col-md-4">
+            <div id="pic" tal:condition="context/icon"><img tal:attributes="src string:${context/absolute_url}/@@download/icon" /></div>
+            <div id="more">
+                <h5 tal:condition="context/contact_email">E-mail:  <span class="agreement-contact-email">
+                    <a tal:attributes="href context/contact_email"
+                       tal:content="context/contact_email"></a>
+                    </span></h5>
+                <h5 tal:condition="context/contact_name">Referente:  <span class="agreement-contact-name" tal:content="context/contact_name" /></h5>
+                <h6 tal:condition="context/contact_phone">Telefono:   <span class="agreement-contact-phone" tal:content="context/contact_phone" /></h6>
+                <h6 tal:condition="context/contact_address">Indirizzo:  <span class="agreement-contact-address" tal:content="context/contact_address" /></h6>
+
+                <div id="agreement-actions">
+                    <a href="@@contact-supplier" class="btn btn-sm btn-gray" tal:condition="context/contact_email">Contatta il fornitore</a>
+                    <a href="@@contact-moreinfo" class="btn btn-sm btn-gray">Richiedi info al Centro Servizi</a>
+                    <a href="javascript:likeIt()" class="btn btn-sm btn-gray">Like!</a>
+                </div>
+            </div>
         </div>
-        <br>
-        <a href="@@contact-supplier" class="btn btn-sm btn-gray" tal:condition="context/contact_email">Contatta il fornitore</a>
-        <a href="@@contact-moreinfo" class="btn btn-sm btn-gray">Richiedi info al Centro Servizi</a>
-        <a href=""><img class="like" src="img/icon-like.png" alt=""></a>
-    </div>
-    <div class="row"></div>
+
 
   </div>
+
+    <script type="text/javascript">
+        function likeIt(){
+            alert('Grazie per il tuo apprezzamento!');
+        }
+    </script>
+
 
   </metal:content-core>
 </metal:main>
