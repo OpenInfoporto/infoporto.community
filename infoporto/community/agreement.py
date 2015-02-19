@@ -109,9 +109,22 @@ class ContactSupplier(BrowserView):
         return current.getUserName()
 
     def __call__(self):
-        #TODO: implement msg send
-        if self.request.get('action') == 'sand':
+        if self.request.get('action') == 'send':
+            #TODO: implement msg send
             pass
 
         return self.template()
 
+
+class showLikes(BrowserView):
+    template = ViewPageTemplateFile('agreement_templates/show_likes.pt')
+
+    def getItems(self):
+        #catalog = api.portal.get_tool(name='portal_catalog')
+        #documents = catalog(portal_type='infoporto.')
+        #return [el.getObject() for el in documents]
+        return []
+
+
+    def __call__(self):
+        return self.template()

@@ -94,4 +94,12 @@
     class=".agreement.ContactSupplier"
     />
 
+  <browser:page
+    name="show-likes"
+    for="*"
+    permission="zope2.View"
+    class=".agreement.showLikes"
+    />
+
+
 </configure>

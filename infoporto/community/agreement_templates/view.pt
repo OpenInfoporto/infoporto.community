@@ -38,8 +38,10 @@
                 <h6 tal:condition="context/contact_address">Indirizzo:  <span class="agreement-contact-address" tal:content="context/contact_address" /></h6>
 
                 <div id="agreement-actions">
-                    <a href="@@contact-supplier" class="btn btn-sm btn-gray" tal:condition="context/contact_email">Contatta il fornitore</a>
-                    <a href="@@contact-moreinfo" class="btn btn-sm btn-gray">Richiedi info al Centro Servizi</a>
+                    <a href="@@contact-supplier" class="btn btn-sm btn-gray" 
+                        tal:condition="context/contact_email">Contatta il fornitore</a>
+                    <a tal:attributes="href string:${portal_url}/contattaci" 
+                        class="btn btn-sm btn-gray">Richiedi info al Centro Servizi</a>
                     <a href="javascript:likeIt()" class="btn btn-sm btn-gray">Like!</a>
                 </div>
             </div>
