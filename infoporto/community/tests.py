@@ -52,6 +52,14 @@ def test_suite():
 
         # -*- extra stuff goes here -*-
 
+        # Integration tests for ContentLike
+        ztc.ZopeDocFileSuite(
+            'ContentLike.txt',
+            package='infoporto.community',
+            optionflags = OPTION_FLAGS,
+            test_class=TestCase),
+
+
         # Integration tests for agreement
         ztc.ZopeDocFileSuite(
             'agreement.txt',
