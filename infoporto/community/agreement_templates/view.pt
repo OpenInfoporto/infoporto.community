@@ -42,7 +42,10 @@
                         tal:condition="context/contact_email">Contatta il fornitore</a>
                     <a tal:attributes="href string:${portal_url}/contattaci" 
                         class="btn btn-sm btn-gray">Richiedi info al Centro Servizi</a>
+                    <span id="likeit">
+                    <input type="hidden" id="uuid" tal:attributes="value context/uuid" />
                     <a href="javascript:likeIt()" class="btn btn-sm btn-gray">Like!</a>
+                    </span>
                 </div>
             </div>
         </div>
@@ -52,7 +55,16 @@
 
     <script type="text/javascript">
         function likeIt(){
-            alert('Grazie per il tuo apprezzamento!');
+            $.ajax({
+                type: "POST",
+                url: portal_url+'/@@likeit',
+                data: {'uuid': $('#uuid').val()},
+                success: function(data){
+                    alert('Grazie per il tuo apprezzamento!');
+                    $('#likeit').html(data);
+                }
+            });
+
         }
     </script>
 

@@ -101,5 +101,11 @@
     class=".agreement.showLikes"
     />
 
+  <browser:page
+    name="likeit"
+    for="*"
+    permission="zope2.View"
+    class=".agreement.likeIt"
+    />
 
 </configure>

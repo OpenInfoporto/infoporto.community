@@ -68,6 +68,7 @@ class Iagreement(form.Schema, IImageScaleTraversable):
             required=False,
         )
 
+
 # Custom content-type class; objects created for this content type will
 # be instances of this class. Use this class to add content-type specific
 # methods and properties. Put methods that are mainly useful for rendering
@@ -77,7 +78,15 @@ class agreement(Item):
     grok.implements(Iagreement)
 
     # Add your class methods and properties here
-    pass
+    def getLikes(self):
+        catalog = api.portal.get_tool(name='portal_catalog')
+        documents = catalog(portal_type='infoporto.community.contentlike')
+        likes = []
+        for dd in documents:
+            if dd.getObject().uuid == api.content.get_uuid(obj=self):
+                likes.append(dd.getObject())
+
+        return len(likes)
 
 
 # View class
@@ -120,11 +129,21 @@ class showLikes(BrowserView):
     template = ViewPageTemplateFile('agreement_templates/show_likes.pt')
 
     def getItems(self):
-        #catalog = api.portal.get_tool(name='portal_catalog')
-        #documents = catalog(portal_type='infoporto.')
-        #return [el.getObject() for el in documents]
-        return []
+        catalog = api.portal.get_tool(name='portal_catalog')
+        documents = catalog(portal_type='infoporto.community.agreement')
+        return [el.getObject() for el in documents]
 
 
     def __call__(self):
         return self.template()
+
+
+class likeIt(BrowserView):
+    def __call__(self):
+        portal = api.portal.get()
+        obj = api.content.create(
+            type='infoporto.community.contentlike',
+            title='Like from %s for %s' % (api.user.get_current(), self.request.uuid),
+            uuid=self.request.uuid,
+            container=api.content.get(path='/servizio/likes/'))
+        return "Grazie!"
