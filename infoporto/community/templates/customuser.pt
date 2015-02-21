@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="infoporto.community">
+<body>
+
+
+<metal:main fill-slot="content-core">
+  <metal:content-core define-macro="content-core">
+
+  <div class="main-content">
+    <div class="content-block">
+        
+        <h1>Informazioni utente</h1>
+
+        <form name="" tal:attributes="action string: ${portal_url}" method="POST" class="col-md-6">
+        
+            <div class="form-group">
+                <label for="exampleInputEmail1">Indirizzo e-mail</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Procedi</button>
+
+        </form>
+
+    </div>
+  </div>
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

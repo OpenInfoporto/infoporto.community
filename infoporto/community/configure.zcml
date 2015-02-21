@@ -108,4 +108,13 @@
     class=".agreement.likeIt"
     />
 
+
+  <browser:page
+    name="first-login"
+    for="*"
+    permission="zope2.View"
+    class=".customuser.firstLogin"
+    />
+
+
 </configure>
