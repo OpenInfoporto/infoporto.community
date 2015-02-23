@@ -1,0 +1,23 @@
+<object classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93" width="800" height="390">
+       <param name="archive" value="lib/ulc-core-client.jar,lib/client-extensions.jar" >
+       <param name="type" value="application/x-java-applet;version=1.2.2" >
+       <param name="codebase" value="http://centroservizicict.contshipitalia.com:8888/InfopointPresentation" >
+       <param name="code" value="com.ulcjava.environment.applet.client.DefaultAppletLauncher.class" >
+       <param name="url-string" value="http://centroservizicict.contshipitalia.com:8888/InfopointPresentation/RequestManager-applet.ulc" >
+       <param name="user-parameter-names" value = "user,password,authMode">
+       <param name="user" tal:attributes="value context/getCurrentUser">
+       <param name="password" value="" >
+       <param name="authMode" value="ldapAuth" >
+       <param name="keep-alive-interval" value="900" >
+       <param name="pluginspage" value="http://java.sun.com/products/plugin/1.2/plugininstall.html" >
+       <COMMENT>
+               <EMBED WIDTH="800" HEIGHT="390"
+                       type="application/x-java-applet;version=1.2.2" codebase="http://centroservizicict.contshipitalia.com:8888/InfopointPresentation"
+                       archive="lib/ulc-core-client.jar,lib/client-extensions.jar"
+                       code="com.ulcjava.environment.applet.client.DefaultAppletLauncher.class"
+                       url-string="http://centroservizicict.contshipitalia.com:8888/InfopointPresentation/RequestManager-applet.ulc"
+                       keep-alive-interval="900" user-parameter-names="user,password,authMode" user="<?php echo $session->get('username'); ?>" password="" authMode=" ldapAuth "
+                       pluginspage="http://java.sun.com/products/plugin/1.2/plugininstall.html">
+               </EMBED>
+       </COMMENT>
+</object>

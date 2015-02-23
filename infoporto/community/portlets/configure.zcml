@@ -19,4 +19,17 @@
       editview=".hotnews.EditForm"
       />
 
+
+  <plone:portlet
+      name="infoporto.community.portlets.changeTurn"
+      interface=".changeTurn.IchangeTurn"
+      assignment=".changeTurn.Assignment"
+      view_permission="zope2.View"
+      edit_permission="cmf.ManagePortal"
+      renderer=".changeTurn.Renderer"
+      addview=".changeTurn.AddForm"
+      editview=".changeTurn.EditForm"
+      />
+
+
 </configure>

@@ -20,4 +20,12 @@
      i18n:attributes="title; description"
    />
 
+   <portlet
+     addview="infoporto.community.portlets.changeTurn"
+     title="Change Turn"
+     description="Display Turn applet"
+     i18n:attributes="title; description"
+   />
+
+
 </portlets>
