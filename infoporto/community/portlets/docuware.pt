@@ -1,0 +1,6 @@
+<p>
+Docuware
+
+</p>
+
+<iframe width="100%" height="500px" tal:attributes="src view/completepath"></iframe>

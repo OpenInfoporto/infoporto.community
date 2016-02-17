@@ -31,5 +31,17 @@
       editview=".changeTurn.EditForm"
       />
 
+  <plone:portlet
+      name="infoporto.community.portlets.docuware"
+      interface=".docuware.IDocuware"
+      assignment=".docuware.Assignment"
+      view_permission="zope2.View"
+      edit_permission="cmf.ManagePortal"
+      renderer=".docuware.Renderer"
+      addview=".docuware.AddForm"
+      editview=".docuware.EditForm"
+      />
+
+
 
 </configure>
