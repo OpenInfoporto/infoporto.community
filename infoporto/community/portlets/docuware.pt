@@ -1,6 +1,1 @@
-<p>
-Docuware
-
-</p>
-
-<iframe width="100%" height="500px" tal:attributes="src view/completepath"></iframe>
+<a target="_blank" tal:attributes="href view/completepath">Consulta i tuoi documenti.</a>
