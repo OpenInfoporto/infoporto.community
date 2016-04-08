@@ -16,40 +16,49 @@
   <metal:content-core define-macro="content-core">
 
   <div class="main-content">
-    <div class="content-block">
+    <div class="agreement-list-item">
+            <h2 tal:content="context/Title" class="section_title"/>
 
-        <div class="agreement-validity" tal:condition="context/start">
-          <h3>Validità</h3>
-          <p>Valido dal <span class="agreement-start" tal:content="context/start" /> al
-          <span class="agreement-end" tal:content="context/end" /></p>
-        </div>
-        
-        <div class="col-md-8" id="agreement-content" tal:content="structure context/details/raw" />
+              <div class="main-content">
 
-        <div class="agreement-contact col-md-4">
-            <div id="pic" tal:condition="context/icon"><img tal:attributes="src string:${context/absolute_url}/@@download/icon" /></div>
-            <div id="more">
-                <h5 tal:condition="context/contact_email">E-mail:  <span class="agreement-contact-email">
-                    <a tal:attributes="href context/contact_email"
-                       tal:content="context/contact_email"></a>
-                    </span></h5>
-                <h5 tal:condition="context/contact_name">Referente:  <span class="agreement-contact-name" tal:content="context/contact_name" /></h5>
-                <h6 tal:condition="context/contact_phone">Telefono:   <span class="agreement-contact-phone" tal:content="context/contact_phone" /></h6>
-                <h6 tal:condition="context/contact_address">Indirizzo:  <span class="agreement-contact-address" tal:content="context/contact_address" /></h6>
+                <div class="agreement-validity" tal:condition="context/start">
+                  <h3>Validità</h3>
+                  <p>Valido dal <span class="agreement-start" tal:content="context/start" /> al
+                  <span class="agreement-end" tal:content="context/end" /></p>
+                </div>
 
-                <div id="agreement-actions">
-                    <a href="@@contact-supplier" class="btn btn-sm btn-gray" 
+
+                <h3 class="agreement-section-label">Servizio:</h3>
+                <div class="agreement-content" id="" tal:content="structure context/details/raw" />
+
+
+                <div class="agreement-contact">
+                    <div id="pic" tal:condition="context/icon"><img tal:attributes="src string:${context/absolute_url}/@@download/icon" /></div>
+                    <div id="more">
+                        <h5 tal:condition="context/contact_email">E-mail:  <span class="agreement-contact-email">
+                            <a tal:attributes="href context/contact_email"
+                               tal:content="context/contact_email"></a>
+                            </span></h5>
+                        <h5 tal:condition="context/contact_name">Referente:  <span class="agreement-contact-name" tal:content="context/contact_name" /></h5>
+                        <h6 tal:condition="context/contact_phone">Telefono:   <span class="agreement-contact-phone" tal:content="context/contact_phone" /></h6>
+                        <h6 tal:condition="context/contact_address">Indirizzo:  <span class="agreement-contact-address" tal:content="context/contact_address" /></h6>
+
+                    </div>
+
+                </div>
+
+
+                <div class="agreement-actions">
+                    <a href="@@contact-supplier" class="section_button"
                         tal:condition="context/contact_email">Contatta il fornitore</a>
-                    <a tal:attributes="href string:${portal_url}/contattaci" 
-                        class="btn btn-sm btn-gray">Richiedi info al Centro Servizi</a>
+                    <a tal:attributes="href string:${portal_url}/contattaci"
+                        class="section_button">Richiedi info al Centro Servizi</a>
                     <span id="likeit">
-                    <input type="hidden" id="uuid" tal:attributes="value context/uuid" />
-                    <a href="javascript:likeIt()" class="btn btn-sm btn-gray">Like!</a>
+                    <input type="hidden" id="uuid" tal:attributes="value context/uuid" class="section_button"/>
+                    <a href="javascript:likeIt()" class="section_button"><i class="fa fa-thumbs-up"></i></a>
                     </span>
                 </div>
             </div>
-        </div>
-
 
   </div>
 

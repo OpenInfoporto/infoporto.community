@@ -1,0 +1,83 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="infoporto.community">
+<body>
+
+<tal:comment tal:condition="nothing">
+    This is a sample view template. It will not be used for rendering the
+    content unless activated by creation of a view class with a matching name.
+</tal:comment>
+
+<metal:main fill-slot="content-core">
+  <metal:content-core define-macro="content-core">
+
+    <div>
+        <div class="agreement-list-item" tal:repeat="agreement view/getAgreements">
+            <h2 tal:content="agreement/Title" class="section_title"/>
+            
+              <div class="main-content">
+
+                <div class="agreement-validity" tal:condition="agreement/start">
+                  <h3>Validità</h3>
+                  <p>Valido dal <span class="agreement-start" tal:content="agreement/start" /> al
+                  <span class="agreement-end" tal:content="agreement/end" /></p>
+                </div>
+
+                <div class="agreement-contact">
+                    <div id="pic" tal:condition="agreement/icon"><img tal:attributes="src string:${agreement/absolute_url}/@@download/icon" /></div>
+                    <div id="more">
+                        <h5 tal:condition="agreement/contact_email">E-mail:  <span class="agreement-contact-email">
+                            <a tal:attributes="href agreement/contact_email"
+                               tal:content="agreement/contact_email"></a>
+                            </span></h5>
+                        <h5 tal:condition="agreement/contact_name">Referente:  <span class="agreement-contact-name" tal:content="agreement/contact_name" /></h5>
+                        <h6 tal:condition="agreement/contact_phone">Telefono:   <span class="agreement-contact-phone" tal:content="agreement/contact_phone" /></h6>
+                        <h6 tal:condition="agreement/contact_address">Indirizzo:  <span class="agreement-contact-address" tal:content="agreement/contact_address" /></h6>
+
+                    </div>
+                
+                <h3 class="agreement-section-label">Servizio:</h3>
+                <div class="agreement-content" id="" tal:content="structure agreement/details/raw" />
+                
+                <div class=""><a tal:attributes="href agreement/absolute_url">Read more >>> </a></div>
+
+
+                <div class="agreement-actions">
+                    <a href="@@contact-supplier" class="section_button"
+                        tal:condition="agreement/contact_email">Contatta il fornitore</a>
+                    <a tal:attributes="href string:${portal_url}/contattaci"
+                        class="section_button">Richiedi info al Centro Servizi</a>
+                    <span id="likeit">
+                    <input type="hidden" id="uuid" tal:attributes="value agreement/uuid" class="section_button"/>
+                    <a href="javascript:likeIt()" class="section_button"><i class="fa fa-thumbs-up"></i></a>
+                    </span>
+                </div>
+        </div>
+
+            <script type="text/javascript">
+                function likeIt(){
+                    $.ajax({
+                        type: "POST",
+                        url: portal_url+'/@@likeit',
+                        data: {'uuid': $('#uuid').val()},
+                        success: function(data){
+                            alert('Grazie per il tuo apprezzamento!');
+                            $('#likeit').html(data);
+                        }
+                    });
+
+                }
+            </script>
+                </div>
+    </div>
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+
