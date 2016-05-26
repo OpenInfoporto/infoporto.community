@@ -1,0 +1,66 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="infoporto.community">
+<body>
+
+<tal:comment tal:condition="nothing">
+    This is a sample view template. It will not be used for rendering the
+    content unless activated by creation of a view class with a matching name.
+</tal:comment>
+
+<metal:main fill-slot="content-core">
+  <metal:content-core define-macro="content-core">
+    <div class="market-item">
+        <div class="row">
+            <div class="market-item-image col-md-4">
+                <img tal:condition="python:getattr(context, 'picture', None)"
+                     tal:attributes="src string:${context/absolute_url}/@@images/picture/preview" />
+            </div>
+            
+            <div class="col-md-8">
+                <div tal:content="context/Description" class="market-description" />
+                <p>Referente: <b tal:content="context/contact_name" /></p>
+                <p>Luogo dell'oggetto: <b tal:content="context/item_city" /></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="request-info">
+        <form method="post" tal:attributes="action context/absolute_url">
+            <h2>Richiedi Informazioni</h2>
+
+            <div data-fieldname="form.widgets.text" class="field z3cformInlineValidation kssattr-fieldname-form.widgets.text empty" id="formfield-form-widgets-email-text">
+                <label for="form-widgets-comment-text" class="horizontal">
+                    Tuo indirizzo e-mail
+                    <span class="required horizontal" title="Obbligatorio">&nbsp;</span>
+                </label>
+
+                <div class="fieldErrorBox"></div>
+                <input name="sender" class="input-widget required text-field autoresize" />
+            </div>
+            
+            <div data-fieldname="form.widgets.text" class="field z3cformInlineValidation kssattr-fieldname-form.widgets.text empty" id="formfield-form-widgets-comment-text">
+                <label for="form-widgets-comment-text" class="horizontal">
+                    Messaggio
+                    <span class="required horizontal" title="Obbligatorio">&nbsp;</span>
+                </label>
+
+                <div class="fieldErrorBox"></div>
+                <textarea id="form-widgets-comment-text" name="body" class="textarea-widget required text-field autoresize"></textarea>
+            </div>
+
+            <div class="formControls">                                    
+                <input id="form-buttons-comment" name="form.buttons.comment" class="submit-widget button-field context" value="Richiedi" type="submit" />
+            </div>
+        </form>
+    </div>
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+
