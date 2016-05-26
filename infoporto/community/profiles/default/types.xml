@@ -8,6 +8,8 @@
   -->
 <object name="portal_types" meta_type="Plone Types Tool">
   <!-- -*- extra stuff goes here -*- -->
+  <object name="infoporto.community.marketitem" meta_type="Dexterity FTI" />
+  <object name="infoporto.community.marketfolder" meta_type="Dexterity FTI" />
   <object name="infoporto.community.newseventfolder" meta_type="Dexterity FTI" />
   <object name="infoporto.community.agreementfolder" meta_type="Dexterity FTI" />
   <object name="infoporto.community.contentlike" meta_type="Dexterity FTI" />

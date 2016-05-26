@@ -29,6 +29,7 @@ setup(name='infoporto.community',
           'plone.app.dexterity [grok, relations]',
           'plone.app.relationfield',
           'plone.namedfile [blobs]',
+          'plone.api',
           # -*- Extra requirements: -*-
       ],
       entry_points="""

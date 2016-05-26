@@ -27,7 +27,6 @@
                   <span class="agreement-end" tal:content="context/end" /></p>
                 </div>
 
-
                 <h3 class="agreement-section-label">Servizio:</h3>
                 <div class="agreement-content" id="" tal:content="structure context/details/raw" />
 
