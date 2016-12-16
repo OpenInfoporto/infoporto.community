@@ -26,7 +26,7 @@
         <div class="newsevent-action pull-right">
             <a tal:attributes="href item/absolute_url" class="section_button">Dettagli</a>
         </div>
-        
+
     </div>
   </metal:content-core>
 </metal:main>

@@ -18,6 +18,7 @@ from Products.CMFCore.utils import getToolByName
 
 from infoporto.community import MessageFactory as _
 
+from plone.app.discussion.interfaces import IConversation
 
 # Interface class; used to define content-type schema.
 
@@ -66,6 +67,14 @@ class View(grok.View):
     @property
     def catalog(self):
         return getToolByName(self.context, 'portal_catalog')
+
+    def getDiscussionCount(self):
+        try:
+            conversation = IConversation(self)
+        except:
+            return 0
+        
+        return conversation.total_comments
 
     def getItems(self):
         results = self.catalog(portal_type='News Item', path=dict(query='/'.join(self.context.getPhysicalPath()), depth=3), sort_on='getObjPositionInParent')

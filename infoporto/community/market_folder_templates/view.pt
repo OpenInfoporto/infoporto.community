@@ -17,9 +17,26 @@
 
     <div tal:repeat="item view/getItems" class="market-item market-list">
         <div class="row">
+            <div id="gallery" tal:attributes="id string:${item/id}"  class="mfp-hide">
+                <img class="slide" tal:condition="python:getattr(item, 'picture', None)"
+                     tal:attributes="src string:${item/absolute_url}/@@images/picture/preview" />
+    
+                <img class="slide" tal:condition="python:getattr(item, 'image1', None)"
+                     tal:attributes="src string:${item/absolute_url}/@@images/image1/preview" />
+
+                <img class="slide" tal:condition="python:getattr(item, 'image2', None)"
+                     tal:attributes="src string:${item/absolute_url}/@@images/image2/preview" />
+
+                <img class="slide" tal:condition="python:getattr(item, 'image3', None)"
+                     tal:attributes="src string:${item/absolute_url}/@@images/image3/preview" />
+        
+                <img class="slide" tal:condition="python:getattr(item, 'image4', None)"
+                     tal:attributes="src string:${item/absolute_url}/@@images/image4/preview" />
+             </div>
+
             <div class="market-item-image col-md-4">
-                <img tal:condition="python:getattr(item, 'picture', None)"
-                   tal:attributes="src string:${item/absolute_url}/@@images/picture/preview" />
+                <a class="open-gallery-link" tal:attributes="href string:#${item/id}"  href="#gallery"><img tal:condition="python:getattr(item, 'picture', None)"
+                     tal:attributes="src string:${item/absolute_url}/@@images/picture/preview" /></a>
             </div>
           
             <div class="col-md-8">
@@ -32,6 +49,32 @@
             <a tal:attributes="href item/absolute_url" class="section_button pull-right" style="color: white !important;">Richiedi info</a>
         </div>
     </div>
+
+    
+   <script> 
+    $('.open-gallery-link').click(function() {
+        var items = [];
+        $( $(this).attr('href') ).find('.slide').each(function() {
+            items.push( {
+                src: $(this) 
+            } );
+        });
+
+        $.magnificPopup.open({
+            items:items,
+            gallery: {
+                enabled: true 
+            }
+        });
+    });
+</script>
+
+
+<style>
+    .mfp-content {
+        text-align: center;
+    }
+</style>
 
   </metal:content-core>
 </metal:main>

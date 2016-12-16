@@ -108,6 +108,12 @@
     class=".agreement.likeIt"
     />
 
+  <browser:page
+    name="mobilelikeit"
+    for="*"
+    permission="zope2.View"
+    class=".agreement.likeMobileIt"
+    />
 
   <browser:page
     name="first-login"

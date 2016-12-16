@@ -16,9 +16,28 @@
   <metal:content-core define-macro="content-core">
     <div class="market-item">
         <div class="row">
-            <div class="market-item-image col-md-4">
-                <img tal:condition="python:getattr(context, 'picture', None)"
+            
+            <div id="gallery" class="mfp-hide">
+                <img class="slide" tal:condition="python:getattr(context, 'picture', None)"
                      tal:attributes="src string:${context/absolute_url}/@@images/picture/preview" />
+    
+                <img class="slide" tal:condition="python:getattr(context, 'image1', None)"
+                     tal:attributes="src string:${context/absolute_url}/@@images/image1/preview" />
+
+                <img class="slide" tal:condition="python:getattr(context, 'image2', None)"
+                     tal:attributes="src string:${context/absolute_url}/@@images/image2/preview" />
+
+                <img class="slide" tal:condition="python:getattr(context, 'image3', None)"
+                     tal:attributes="src string:${context/absolute_url}/@@images/image3/preview" />
+        
+                <img class="slide" tal:condition="python:getattr(context, 'image4', None)"
+                     tal:attributes="src string:${context/absolute_url}/@@images/image4/preview" />
+
+             </div>
+            
+            <div class="market-item-image col-md-4">
+                <a class="open-gallery-link" href="#gallery"><img tal:condition="python:getattr(context, 'picture', None)"
+                     tal:attributes="src string:${context/absolute_url}/@@images/picture/preview" /></a>
             </div>
             
             <div class="col-md-8">
@@ -28,6 +47,30 @@
             </div>
         </div>
     </div>
+
+    <style>
+        .mfp-content {
+            text-align: center;
+        }
+    </style>
+
+    <script> 
+        $('.open-gallery-link').click(function() {
+            var items = [];
+            $( $(this).attr('href') ).find('.slide').each(function() {
+                items.push( {
+                    src: $(this) 
+                } );
+            });
+  
+            $.magnificPopup.open({
+                items:items,
+                gallery: {
+                    enabled: true 
+                }
+            });
+        });
+    </script>
 
     <div class="request-info">
         <form method="post" tal:attributes="action context/absolute_url">

@@ -19,6 +19,8 @@ from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone import api
 
+import json
+
 # Interface class; used to define content-type schema.
 
 class Iagreement(form.Schema, IImageScaleTraversable):
@@ -137,6 +139,19 @@ class showLikes(BrowserView):
     def __call__(self):
         return self.template()
 
+class likeMobileIt(BrowserView):
+    
+    def __call__(self):
+        body = self.request.get('BODY')
+        body = json.loads(body)
+        uuid = body.get('uuid')
+
+        portal = api.portal.get()
+        obj = api.content.create(
+            type='infoporto.community.contentlike',
+            title='Like from %s for %s' % (api.user.get_current(), uuid),
+            uuid=uuid,
+            container=api.content.get(path='/servizio/likes/'))
 
 class likeIt(BrowserView):
     def __call__(self):

@@ -44,9 +44,28 @@ class IMarketItem(model.Schema):
 
     picture = namedfile.NamedBlobImage(
         title=_(u"Picture"),
+        required=True,
+    )
+
+    image1 = namedfile.NamedBlobImage(
+        title=_(u"Image 1"),
         required=False,
     )
 
+    image2 = namedfile.NamedBlobImage(
+        title=_(u"Image 2"),
+        required=False,
+    )
+
+    image3 = namedfile.NamedBlobImage(
+        title=_(u"Image 3"),
+        required=False,
+    )
+
+    image4 = namedfile.NamedBlobImage(
+        title=_(u"Image 4"),
+        required=False,
+    )
 
 # Custom content-type class; objects created for this content type will
 # be instances of this class. Use this class to add content-type specific
